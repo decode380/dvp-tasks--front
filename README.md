@@ -1,50 +1,10 @@
-# React + TypeScript + Vite
+# Aplicación web React + Typescript para Double V Partners
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Patrones y dependencias
+- `Material UI` para el maquetado y estilización de la aplicación, siendo casi todos los componentes en base a estos, la aplicación casi no cuenta con etiquetas originales de HTML.
+- `Material UI Data Grid` para visualizar la información y orquestar el Server Side Pagination que ya implementa la API.
+- `Axios` para implementar la configuración general de las consultas a la API y manejas los middlewares correspondientes para el token y cierre de sesión en caso de que la API responda 401.
+- `JWT-decode` para la visualización de la información del token (solo email del usuario) sin verificar la firma, ya que la API ya lo realiza en los enpoints protegidos.
+- `Notistack` y `SweetAlert2` para el manejo de notificaciones y mensajes de confirmación.
+- `React Hook Form` para la gestión de los formularios.
+- `Zustand` para la gestión de estados implementando el patrón `Redux`.
